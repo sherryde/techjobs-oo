@@ -36,3 +36,14 @@ public class SearchForm {
         this.keyword = keyword;
     }
 }
+
+/** Notes: https://education.launchcode.org/skills-back-end-java/assignments/techjobs-oo/
+ * These fields represent the data associated with the search form. In other words,
+ * each is necessary to display and process the form.
+ * If you look within SearchController,
+ * you'll see that we use model binding with a SearchForm object to process the form,
+ * and we pass a SearchForm object into the view to display the form.
+
+ We do this because there isn't a natural model object to use with the search form,
+ but we'd like to have the benefits of model binding and validation.
+ * */

@@ -21,6 +21,13 @@ public class JobForm {
 
     @NotNull
     private int employerId;
+    @NotNull
+    private int locationId;
+    @NotNull
+    private int positionTypeId;
+    @NotNull
+    private int coreCompetencyId;
+    //https://stackoverflow.com/questions/51687831/dao-is-null-but-only-in-one-case
 
     /*
         TODO #3 - Included other fields needed to create a job,
@@ -30,8 +37,8 @@ public class JobForm {
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
-    private ArrayList<CoreCompetency> coreCompetencies;
     private ArrayList<PositionType> positionTypes;
+    private ArrayList<CoreCompetency> coreCompetencies;
 
     public JobForm() {
 
@@ -42,54 +49,66 @@ public class JobForm {
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
 
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
+
     public int getEmployerId() {
         return employerId;
     }
-
     public void setEmployerId(int employerId) {
         this.employerId = employerId;
     }
-
     public ArrayList<Employer> getEmployers() {
         return employers;
     }
-
     public void setEmployers(ArrayList<Employer> employers) {
         this.employers = employers;
     }
 
+
+    public int getLocationId() { return locationId; }
+    public void setLocationId(int locationId) { this.locationId = locationId; }
     public ArrayList<Location> getLocations() {
         return locations;
     }
-
     public void setLocations(ArrayList<Location> locations) {
         this.locations = locations;
     }
 
-    public ArrayList<CoreCompetency> getCoreCompetencies() {
-        return coreCompetencies;
-    }
 
-    public void setCoreCompetencies(ArrayList<CoreCompetency> coreCompetencies) {
-        this.coreCompetencies = coreCompetencies;
-    }
-
+    public int getPositionTypeId() { return positionTypeId;}
+    public void setPositionTypeId(int positionTypeId) {this.positionTypeId = positionTypeId; }
     public ArrayList<PositionType> getPositionTypes() {
         return positionTypes;
     }
-
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
     }
+
+
+    public int getCoreCompetencyId() { return coreCompetencyId; }
+    public void setCoreCompetencyId(int coreCompetencyId) { this.coreCompetencyId = coreCompetencyId; }
+    public ArrayList<CoreCompetency> getCoreCompetencies() {
+        return coreCompetencies;
+    }
+    public void setCoreCompetencies(ArrayList<CoreCompetency> coreCompetencies) { this.coreCompetencies = coreCompetencies; }
+
 }
+
+/** Notes: https://education.launchcode.org/skills-back-end-java/assignments/techjobs-oo/
+ * JobForm contains (some of) the data needed to display and process a form to create a new job.
+ * */
+//https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/
+//https://careydevelopment.us/2017/05/24/implement-form-field-validation-spring-boot-thymeleaf/
+//https://stackoverflow.com/questions/4963300/which-notnull-java-annotation-should-i-use
